@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import './App.scss'
-import { Route } from 'react-router-dom'
+import { Link, Route } from 'react-router-dom'
 
 import AuthenticatedRoute from './auth/components/AuthenticatedRoute'
 import Header from './header/Header'
@@ -8,6 +8,7 @@ import SignUp from './auth/components/SignUp'
 import SignIn from './auth/components/SignIn'
 import SignOut from './auth/components/SignOut'
 import ChangePassword from './auth/components/ChangePassword'
+import Cocktails from './cocktails/components/Cocktails'
 
 import Alert from 'react-bootstrap/Alert'
 
@@ -55,6 +56,10 @@ class App extends Component {
           <AuthenticatedRoute user={user} path='/change-password' render={() => (
             <ChangePassword alert={this.alert} user={user} />
           )} />
+          <Route exact path='/cocktails' component={Cocktails} render={() => (
+            <Cocktails />
+          ) }/>
+          <Link to='/cocktails'>Get Cocktails</Link>
         </main>
       </React.Fragment>
     )
