@@ -93,7 +93,7 @@ class Cocktails extends Component {
           <Col sm={8}>
             <CardColumns>
               {Object.keys(cocktails).map((key, i) => {
-                if (this.state.selectedIngredients.filter(x => Object.keys(cocktails[key].ingredients).includes(x)).length !== 0) {
+                if (this.state.selectedIngredients.filter(x => Object.keys(cocktails[key].ingredients).includes(x)).length === Object.keys(cocktails[key].ingredients).length) {
                   return (
                     <Card key={i}>
                       <Card.Title>{Object.keys(cocktails)[i]}</Card.Title>
@@ -116,20 +116,5 @@ class Cocktails extends Component {
     )
   }
 }
-// <CardDeck>
-//   {Object.keys(cocktails).map((key, i) => (
-//     <Card key={i}>
-//       <Card.Title>{Object.keys(cocktails)[i]}</Card.Title>
-//       <Card.Text>
-//         <ul>
-//           {Object.entries(cocktails[key].ingredients).map((ingredient, x) => (
-//             <li key={x}>{`${ingredient[0]}: ${ingredient[1]}`}</li>
-//           ))}
-//         </ul>
-//         {cocktails[key].instructions}
-//       </Card.Text>
-//     </Card>
-//   ))}
-// </CardDeck>
 
 export default Cocktails
