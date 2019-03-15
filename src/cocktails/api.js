@@ -24,3 +24,14 @@ export const getSavedIngredients = user => {
     }
   })
 }
+
+export const postSavedIngredients = (data, user) => {
+  return axios({
+    url: apiUrl + '/ingredient_users',
+    method: 'POST',
+    headers: {
+      'Authorization': `Token token=${user.token}`
+    },
+    data: data
+  })
+}
