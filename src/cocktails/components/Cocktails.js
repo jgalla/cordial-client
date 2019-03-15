@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Card from 'react-bootstrap/Card'
-import CardDeck from 'react-bootstrap/CardDeck'
+import CardColumns from 'react-bootstrap/CardColumns'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
@@ -91,7 +91,7 @@ class Cocktails extends Component {
             />
           </Col>
           <Col sm={8}>
-            <CardDeck>
+            <CardColumns>
               {Object.keys(cocktails).map((key, i) => {
                 if (this.state.selectedIngredients.filter(x => Object.keys(cocktails[key].ingredients).includes(x)).length !== 0) {
                   return (
@@ -109,7 +109,7 @@ class Cocktails extends Component {
                   )
                 }
               })}
-            </CardDeck>
+            </CardColumns>
           </Col>
         </Row>
       </Container>
