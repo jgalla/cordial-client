@@ -14,3 +14,13 @@ export const getIngredients = () => {
     url: apiUrl + '/ingredients'
   })
 }
+
+export const getSavedIngredients = user => {
+  return axios({
+    url: apiUrl + '/ingredient_users',
+    method: 'GET',
+    headers: {
+      'Authorization': `Token token=${user.token}`
+    }
+  })
+}
