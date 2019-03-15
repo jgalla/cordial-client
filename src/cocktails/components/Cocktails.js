@@ -1,4 +1,6 @@
 import React, { Component, Fragment } from 'react'
+import Card from 'react-bootstrap/Card'
+import CardDeck from 'react-bootstrap/CardDeck'
 // import { Link } from 'react-router-dom'
 import { getCocktails } from '../api'
 
@@ -22,6 +24,7 @@ class Cocktails extends Component {
           this.setState({ cocktails: {
             ...this.state.cocktails,
             [item.cocktail.name]: {
+              'id': item.id,
               'instructions': item.cocktail.instructions,
               'ingredients': {
                 [item.ingredient.ingredient_name]: item.qty
@@ -54,18 +57,37 @@ class Cocktails extends Component {
   // </ul>
 
   render () {
-    // const { cocktails } = this.state
+    const { cocktails } = this.state
 
-    if (!this.state.cocktails) {
+    if (!cocktails) {
       return <p>loading...</p>
     }
 
     return (
       <Fragment>
-        <h3>Cocktails: </h3>
+        <CardDeck>
+          {Object.keys(cocktails).map((key, i) => (
+            <Card key={i}>
+              <Card.Title>{Object.keys(cocktails)[i]}</Card.Title>
+              <Card.Text>
+                <ul>
+                  <li>{Object.keys(cocktails[key].ingredients)[0]}: {Object.values(cocktails[key].ingredients)[0]}</li>
+                </ul>
+                {cocktails[key].instructions}
+              </Card.Text>
+            </Card>
+          ))}
+        </CardDeck>
       </Fragment>
     )
   }
 }
+
+// <CardDeck>
+//   {Object.keys(this.state.cocktails).map((key, i) => (
+//     <Card key={i}>
+//     </Card>
+//   ))}
+// </CardDeck>
 
 export default Cocktails
