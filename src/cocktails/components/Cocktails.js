@@ -7,7 +7,6 @@ import Col from 'react-bootstrap/Col'
 
 import Ingredients from './Ingredients'
 
-// import { Link } from 'react-router-dom'
 import { getCocktails, getIngredients } from '../api'
 
 class Cocktails extends Component {
@@ -47,9 +46,17 @@ class Cocktails extends Component {
         console.error(error)
       })
   }
+  handleChange = event => {
+    const index = event.target.getAttribute('index')
+    const newIngredients = this.state.ingredients.slice()
+    console.log(newIngredients)
+    newIngredients[index].checked_status = !newIngredients[index].checked_status
+    this.setState({ ingredients: newIngredients })
+  }
 
   render () {
     const { cocktails, ingredients } = this.state
+    const { handleChange } = this
 
     if (!cocktails) {
       return <p>loading...</p>
@@ -61,6 +68,7 @@ class Cocktails extends Component {
           <Col sm={4}>
             <Ingredients
               ingredients={ingredients}
+              handleChange={handleChange}
             />
           </Col>
           <Col sm={8}>
