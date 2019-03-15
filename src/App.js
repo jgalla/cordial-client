@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import './App.scss'
-import { Link, Route } from 'react-router-dom'
+import { Route } from 'react-router-dom'
 
 import AuthenticatedRoute from './auth/components/AuthenticatedRoute'
 import Header from './header/Header'
@@ -56,10 +56,9 @@ class App extends Component {
           <AuthenticatedRoute user={user} path='/change-password' render={() => (
             <ChangePassword alert={this.alert} user={user} />
           )} />
-          <Route exact path='/cocktails' component={Cocktails} render={() => (
+          <Route exact path='/' component={Cocktails} render={() => (
             <Cocktails />
           ) }/>
-          <Link to='/cocktails'>Get Cocktails</Link>
         </main>
       </React.Fragment>
     )
