@@ -23,17 +23,24 @@ class Cocktails extends Component {
     getCocktails()
       .then(response => {
         const responseData = response.data.cocktail_ingredients
+        const filteredData = {}
         responseData.map(item => {
-          this.setState({ cocktails: {
-            ...this.state.cocktails,
-            [item.cocktail.name]: {
-              'id': item.id,
-              'instructions': item.cocktail.instructions,
-              'ingredients': {
+          // const temp = {}
+          if (!Object.keys(filteredData).includes(item.cocktail.name)) {
+            filteredData[item.cocktail.name] = {
+              id: item.cocktail.id,
+              instructions: item.cocktail.instructions,
+              ingredients: {
                 [item.ingredient.ingredient_name]: item.qty
               }
             }
-          } })
+          } else if (Object.keys(filteredData).includes(item.cocktail.name)) {
+            filteredData[item.cocktail.name].ingredients[item.ingredient.ingredient_name] = item.qty
+          }
+          // filteredData.push(temp)
+        })
+        responseData.map(item => {
+          this.setState({ cocktails: filteredData })
         })
       })
       .catch(error => {
@@ -49,7 +56,6 @@ class Cocktails extends Component {
   handleChange = event => {
     const index = event.target.getAttribute('index')
     const newIngredients = this.state.ingredients.slice()
-    console.log(newIngredients)
     newIngredients[index].checked_status = !newIngredients[index].checked_status
     this.setState({ ingredients: newIngredients })
   }
@@ -78,7 +84,9 @@ class Cocktails extends Component {
                   <Card.Title>{Object.keys(cocktails)[i]}</Card.Title>
                   <Card.Text>
                     <ul>
-                      <li>{Object.keys(cocktails[key].ingredients)[0]}: {Object.values(cocktails[key].ingredients)[0]}</li>
+                      {Object.entries(cocktails[key].ingredients).map((ingredient, x) => (
+                        <li key={x}>{`${ingredient[0]}: ${ingredient[1]}`}</li>
+                      ))}
                     </ul>
                     {cocktails[key].instructions}
                   </Card.Text>
