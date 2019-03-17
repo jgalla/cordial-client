@@ -75,7 +75,7 @@ class Cocktails extends Component {
   }
 
   render () {
-    const { cocktails, ingredients } = this.state
+    const { cocktails, ingredients, selectedIngredients } = this.state
     const { handleChange } = this
     const { user } = this.props
 
@@ -87,7 +87,7 @@ class Cocktails extends Component {
       <Container>
         <Row>
           <Col sm={4}>
-            { user ? (<UserIngredients />) : null}
+            { user ? (<UserIngredients user ={user} selectedIngredients={selectedIngredients} />) : null}
             <Ingredients
               ingredients={ingredients}
               handleChange={handleChange}

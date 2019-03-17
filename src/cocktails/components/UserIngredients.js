@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react'
-import { getSavedIngredients } from '../api'
+import { saveIngredients, getSavedIngredients } from '../api'
 
 import Button from 'react-bootstrap/Button'
 
@@ -9,7 +9,8 @@ class UserIngredients extends Component {
 
     this.state = {
       isLoadingGet: false,
-      isLoadingSave: false
+      isLoadingSave: false,
+      selectedIngredients: props.selectedIngredients
     }
   }
 
@@ -24,9 +25,11 @@ class UserIngredients extends Component {
   }
 
   handleSave = () => {
+    const { user } = this.props
+    console.log('user', user)
     this.setState({ isLoadingSave: true }, () => {
-      getSavedIngredients()
-        .then(response => console.log(response))
+      saveIngredients(this.state.selectedIngredients, user)
+        .then(user => console.log(user))
         .then(() => {
           this.setState({ isLoadingSave: false })
         })
