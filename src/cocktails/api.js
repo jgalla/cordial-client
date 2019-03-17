@@ -25,7 +25,7 @@ export const getSavedIngredients = user => {
   })
 }
 
-export const postSavedIngredients = (data, user) => {
+export const saveIngredients = (data, user) => {
   return axios({
     url: apiUrl + '/ingredient_users',
     method: 'POST',

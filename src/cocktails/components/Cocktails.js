@@ -6,6 +6,7 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 
 import Ingredients from './Ingredients'
+import UserIngredients from './UserIngredients'
 
 import { getCocktails, getIngredients } from '../api'
 
@@ -76,6 +77,7 @@ class Cocktails extends Component {
   render () {
     const { cocktails, ingredients } = this.state
     const { handleChange } = this
+    const { user } = this.props
 
     if (!cocktails) {
       return <p>loading...</p>
@@ -85,6 +87,7 @@ class Cocktails extends Component {
       <Container>
         <Row>
           <Col sm={4}>
+            { user ? (<UserIngredients />) : null}
             <Ingredients
               ingredients={ingredients}
               handleChange={handleChange}
