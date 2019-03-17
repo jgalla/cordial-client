@@ -60,8 +60,8 @@ class App extends Component {
           <AuthenticatedRoute user={user} path='/ingredient_users' render={() => (
             <SavedIngredients user={user} />
           )} />
-          <Route exact path='/' component={Cocktails} render={() => (
-            <Cocktails />
+          <Route exact user={user} path='/' render={() => (
+            <Cocktails user={user} />
           ) }/>
         </main>
       </React.Fragment>
