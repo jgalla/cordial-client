@@ -1,5 +1,8 @@
 import React, { Component, Fragment } from 'react'
-import Button from 'react-bootstrap/Button'
+// import Button from 'react-bootstrap/Button'
+
+import DeleteIngredient from './DeleteIngredient'
+// import { deleteIngredients } from '../api'
 
 class Ingredients extends Component {
   // constructor (props) {
@@ -7,6 +10,7 @@ class Ingredients extends Component {
   // }
 
   handleClick = event => {
+    console.log(event.target.id)
   }
 
   render () {
@@ -17,7 +21,7 @@ class Ingredients extends Component {
         <form>
           {ingredients.map((ingredient, i) => (
             <Fragment key={ingredient.id}>
-              <Button onClick={handleClick} variant="outline-dark" size="sm">X</Button>
+              <DeleteIngredient handleClick={handleClick} id={ingredient.id}/>
               <label>
                 <input
                   type='checkbox'

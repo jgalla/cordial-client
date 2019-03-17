@@ -1,23 +1,9 @@
 import React, { Fragment } from 'react'
+import Button from 'react-bootstrap/Button'
 
-const DeleteIngredient = ({ handleChange, ingredients }) => (
+const DeleteIngredient = ({ handleClick, id }) => (
   <Fragment>
-    <form>
-      {ingredients.map((ingredient, i) => (
-        <Fragment key={ingredient.id}>
-          <label>
-            <input
-              type='checkbox'
-              name={ingredient.ingredient_name}
-              index={i}
-              checked={ingredient.checked_status}
-              onChange={handleChange} />
-            {' '}{ingredient.ingredient_name}
-          </label>
-          <br />
-        </Fragment>
-      ))}
-    </form>
+    <Button onClick={handleClick} id={id} variant="outline-dark" size="sm">X</Button>
   </Fragment>
 )
 export default DeleteIngredient
