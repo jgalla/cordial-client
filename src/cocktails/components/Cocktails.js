@@ -25,8 +25,8 @@ class Cocktails extends Component {
       .then(response => {
         const responseData = response.data.cocktail_ingredients
         const filteredData = {}
+
         responseData.map(item => {
-          // const temp = {}
           if (!Object.keys(filteredData).includes(item.cocktail.name)) {
             filteredData[item.cocktail.name] = {
               id: item.cocktail.id,
@@ -38,8 +38,8 @@ class Cocktails extends Component {
           } else if (Object.keys(filteredData).includes(item.cocktail.name)) {
             filteredData[item.cocktail.name].ingredients[item.ingredient.ingredient_name] = item.qty
           }
-          // filteredData.push(temp)
         })
+
         responseData.map(item => {
           this.setState({ cocktails: filteredData })
         })
@@ -54,23 +54,23 @@ class Cocktails extends Component {
         console.error(error)
       })
   }
+
   handleChange = event => {
     const index = event.target.getAttribute('index')
     const newIngredients = this.state.ingredients.slice()
     newIngredients[index].checked_status = !newIngredients[index].checked_status
 
     const checked = event.target.checked
-    console.log(checked)
     const ingredient = event.target.getAttribute('name')
     const newSelectedIngredients = this.state.selectedIngredients.slice()
-    if (checked) {
-      newSelectedIngredients.push(ingredient)
-    } else {
-      const arrIndex = newSelectedIngredients.indexOf(ingredient)
-      newSelectedIngredients.splice(arrIndex, 1)
-    }
+    const arrIndex = newSelectedIngredients.indexOf(ingredient)
 
-    this.setState({ ingredients: newIngredients, selectedIngredients: newSelectedIngredients })
+    checked ? newSelectedIngredients.push(ingredient)
+      : newSelectedIngredients.splice(arrIndex, 1)
+
+    this.setState(
+      { ingredients: newIngredients, selectedIngredients: newSelectedIngredients
+      })
   }
 
   render () {
