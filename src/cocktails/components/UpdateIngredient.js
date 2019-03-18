@@ -17,6 +17,7 @@ class UpdateIngredient extends Component {
 
   handleSubmit = event => {
     event.preventDefault()
+    event.target.reset()
     const { handleUpdate, ingredient, user } = this.props
     const data = {
       ingredient: {
@@ -41,7 +42,7 @@ class UpdateIngredient extends Component {
             placeholder={this.state.ingredient_name}
             name="ingredient_name"
             onChange={handleChange}
-            value={''}
+            value={undefined}
           />
           <button type="submit" >Update</button>
         </form>

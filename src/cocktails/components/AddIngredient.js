@@ -49,7 +49,7 @@ class AddIngredient extends Component {
             placeholder="Add Ingredient"
             name="ingredient"
             onChange={handleChange}
-            value={''}
+            value={undefined}
           />
           <button type="submit" >Submit</button>
         </form>
