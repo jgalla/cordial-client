@@ -14,13 +14,15 @@ class AddIngredient extends Component {
   }
 
   handleChange = event => {
+    event.preventDefault()
+
     const updatedField = { [event.target.name]: event.target.value }
     this.setState(updatedField)
   }
 
   handleSubmit = event => {
     event.preventDefault()
-
+    event.target.reset()
     const { alert, user } = this.props
     const data = {
       ingredient: {
@@ -40,7 +42,7 @@ class AddIngredient extends Component {
 
   render () {
     const { handleChange, handleSubmit } = this
-    const { ingredient } = this.state
+    // const { ingredient } = this.state
     // const { handleChange, ingredients } = this.props
     return (
       <Fragment>
@@ -50,7 +52,7 @@ class AddIngredient extends Component {
             placeholder="Ingredient"
             name="ingredient"
             onChange={handleChange}
-            value={ingredient}
+            value={null}
           />
           <button type="submit" >Submit</button>
         </form>
