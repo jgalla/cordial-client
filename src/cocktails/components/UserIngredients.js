@@ -17,21 +17,24 @@ class UserIngredients extends Component {
   handleLoad = () => {
     this.setState({ isLoadingGet: true }, () => {
       getSavedIngredients()
-        .then(response => console.log(response))
         .then(() => {
           this.setState({ isLoadingGet: false })
+        })
+        .catch(error => {
+          console.error(error)
         })
     })
   }
 
   handleSave = () => {
     const { user } = this.props
-    console.log('user', user)
     this.setState({ isLoadingSave: true }, () => {
       saveIngredients(this.state.selectedIngredients, user)
-        .then(user => console.log(user))
         .then(() => {
           this.setState({ isLoadingSave: false })
+        })
+        .catch(error => {
+          console.error(error)
         })
     })
   }

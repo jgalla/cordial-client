@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from 'react'
-// import Button from 'react-bootstrap/Button'
 
 import DeleteIngredient from './DeleteIngredient'
 import AddIngredient from './AddIngredient'
@@ -7,12 +6,7 @@ import UpdateIngredient from './UpdateIngredient'
 import { deleteIngredient } from '../api'
 
 class Ingredients extends Component {
-  // constructor (props) {
-  //   super(props)
-  // }
-
   handleDelete = event => {
-    console.log(event.target.id)
     const id = event.target.id
     deleteIngredient(id, this.props.user)
       .then(this.props.handleUpdate)

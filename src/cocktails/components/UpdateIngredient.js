@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from 'react'
-// import Button from 'react-bootstrap/Button'
 
 import { updateIngredient } from '../api'
 
@@ -13,7 +12,6 @@ class UpdateIngredient extends Component {
   }
 
   handleChange = event => {
-    // const updatedField = { [event.target.name]: event.target.value }
     this.setState({ ingredient_name: event.target.value })
   }
 
@@ -25,10 +23,8 @@ class UpdateIngredient extends Component {
         ingredient_name: this.state.ingredient_name
       }
     }
-    // console.log('ing', data)
 
     updateIngredient(ingredient.id, data, user)
-      .then(response => console.log(response))
       .then(handleUpdate)
       .catch(error => {
         console.error(error)
@@ -37,8 +33,7 @@ class UpdateIngredient extends Component {
 
   render () {
     const { handleChange, handleSubmit } = this
-    // const { ingredient_name } = this.state
-    // const { handleUpdate } = this.props
+
     return (
       <Fragment>
         <form onSubmit={handleSubmit}>

@@ -32,7 +32,6 @@ class AddIngredient extends Component {
     }
 
     addIngredient(data, user)
-      .then(response => console.log(response))
       .then(this.props.handleUpdate)
       .then(() => alert(messages.addIngredientSuccess, 'success'))
       .catch(error => {
@@ -42,14 +41,12 @@ class AddIngredient extends Component {
 
   render () {
     const { handleChange, handleSubmit } = this
-    // const { ingredient } = this.state
-    // const { handleChange, ingredients } = this.props
+
     return (
       <Fragment>
         <form onSubmit={handleSubmit}>
-          <label>Title</label>
           <input
-            placeholder="Ingredient"
+            placeholder="Add Ingredient"
             name="ingredient"
             onChange={handleChange}
             value={null}
@@ -60,4 +57,5 @@ class AddIngredient extends Component {
     )
   }
 }
+
 export default AddIngredient

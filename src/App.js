@@ -9,7 +9,6 @@ import SignIn from './auth/components/SignIn'
 import SignOut from './auth/components/SignOut'
 import ChangePassword from './auth/components/ChangePassword'
 import Cocktails from './cocktails/components/Cocktails'
-// import SavedIngredients from './cocktails/components/SavedIngredients'
 
 import Alert from 'react-bootstrap/Alert'
 

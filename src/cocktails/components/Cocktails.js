@@ -6,8 +6,6 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 
 import Ingredients from './Ingredients'
-// import UserIngredients from './UserIngredients'
-// import Button from 'react-bootstrap/Button'
 
 import { getCocktails, getIngredients } from '../api'
 
@@ -81,7 +79,6 @@ class Cocktails extends Component {
       .catch(error => {
         console.error(error)
       })
-    // console.log(event.target)
   }
 
   render () {
