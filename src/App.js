@@ -61,7 +61,7 @@ class App extends Component {
             <SignIn alert={this.alert} setUser={this.setUser} />
           ) }/>
           <AuthenticatedRoute exact user={user} path='/cocktails' render={() => (
-            <Cocktails user={user} />
+            <Cocktails alert={this.alert} user={user} />
           ) }/>
         </main>
       </React.Fragment>

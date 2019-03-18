@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react'
 // import Button from 'react-bootstrap/Button'
 
 import { addIngredient } from '../api'
+import messages from '../messages'
 
 class AddIngredient extends Component {
   constructor () {
@@ -19,19 +20,19 @@ class AddIngredient extends Component {
 
   handleSubmit = event => {
     event.preventDefault()
-    // const { ingredient } = this.state
-    const { user } = this.props
+
+    const { alert, user } = this.props
     const data = {
       ingredient: {
         ingredient_name: this.state.ingredient,
         checked_status: false
       }
     }
-    console.log('ing', this.state.ingredient)
 
     addIngredient(data, user)
       .then(response => console.log(response))
       .then(this.props.handleUpdate)
+      .then(() => alert(messages.addIngredientSuccess, 'success'))
       .catch(error => {
         console.error(error)
       })

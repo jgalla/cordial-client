@@ -23,12 +23,12 @@ class Ingredients extends Component {
 
   render () {
     const { handleDelete } = this
-    const { handleChange, handleUpdate, ingredients, user } = this.props
+    const { alert, handleChange, handleUpdate, ingredients, user } = this.props
 
     return (
       <Fragment>
         <form>
-          <AddIngredient handleUpdate={handleUpdate} user={user}/>
+          <AddIngredient alert={alert} handleUpdate={handleUpdate} user={user}/>
           {ingredients.map((ingredient, i) => (
             <Fragment key={ingredient.id}>
               {ingredient.id < 13

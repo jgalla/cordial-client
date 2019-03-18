@@ -87,7 +87,7 @@ class Cocktails extends Component {
   render () {
     const { cocktails, ingredients } = this.state
     const { handleChange, handleUpdate } = this
-    const { user } = this.props
+    const { alert, user } = this.props
 
     if (!cocktails) {
       return <p>loading...</p>
@@ -98,6 +98,7 @@ class Cocktails extends Component {
         <Row>
           <Col sm={4}>
             <Ingredients
+              alert={alert}
               ingredients={ingredients}
               handleChange={handleChange}
               handleUpdate={handleUpdate}
