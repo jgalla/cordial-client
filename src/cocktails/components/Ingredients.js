@@ -3,19 +3,25 @@ import React, { Component, Fragment } from 'react'
 
 import DeleteIngredient from './DeleteIngredient'
 import AddIngredient from './AddIngredient'
-// import { deleteIngredients } from '../api'
+import { deleteIngredient } from '../api'
 
 class Ingredients extends Component {
   // constructor (props) {
   //   super(props)
   // }
 
-  handleClick = event => {
+  handleDelete = event => {
     console.log(event.target.id)
+    const id = event.target.id
+    deleteIngredient(id, this.props.user)
+      .then(response => console.log(response))
+      .catch(error => {
+        console.error(error)
+      })
   }
 
   render () {
-    const { handleClick } = this
+    const { handleDelete } = this
     const { handleChange, ingredients, user } = this.props
 
     return (
@@ -24,7 +30,7 @@ class Ingredients extends Component {
           <AddIngredient user={user}/>
           {ingredients.map((ingredient, i) => (
             <Fragment key={ingredient.id}>
-              <DeleteIngredient handleClick={handleClick} id={ingredient.id}/>
+              <DeleteIngredient handleDelete={handleDelete} id={ingredient.id}/>
               <label>
                 <input
                   type='checkbox'

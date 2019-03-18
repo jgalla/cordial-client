@@ -1,9 +1,9 @@
 import React, { Fragment } from 'react'
 import Button from 'react-bootstrap/Button'
 
-const DeleteIngredient = ({ handleClick, id }) => (
+const DeleteIngredient = ({ handleDelete, id }) => (
   <Fragment>
-    <Button onClick={handleClick} id={id} variant="outline-dark" size="sm">X</Button>
+    <Button onClick={handleDelete} id={id} variant="outline-dark" size="sm">X</Button>
   </Fragment>
 )
 export default DeleteIngredient

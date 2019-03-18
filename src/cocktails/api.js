@@ -15,16 +15,6 @@ export const getIngredients = () => {
   })
 }
 
-// export const getSavedIngredients = user => {
-//   return axios({
-//     url: apiUrl + '/ingredient_users',
-//     method: 'GET',
-//     headers: {
-//       'Authorization': `Token token=${user.token}`
-//     }
-//   })
-// }
-
 export const addIngredient = (data, user) => {
   return axios({
     url: apiUrl + '/ingredients',
@@ -38,8 +28,8 @@ export const addIngredient = (data, user) => {
 
 export const deleteIngredient = (id, user) => {
   return axios({
-    url: apiUrl + '/ingredient_users/' + id,
-    method: 'POST',
+    url: apiUrl + '/ingredients/' + id,
+    method: 'DELETE',
     headers: {
       'Authorization': `Token token=${user.token}`
     }
