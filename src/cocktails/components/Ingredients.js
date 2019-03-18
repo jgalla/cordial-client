@@ -30,7 +30,9 @@ class Ingredients extends Component {
           <AddIngredient user={user}/>
           {ingredients.map((ingredient, i) => (
             <Fragment key={ingredient.id}>
-              <DeleteIngredient handleDelete={handleDelete} id={ingredient.id}/>
+              {ingredient.id < 13
+                ? (null)
+                : (<DeleteIngredient handleDelete={handleDelete} id={ingredient.id}/>)}
               <label>
                 <input
                   type='checkbox'
@@ -48,4 +50,5 @@ class Ingredients extends Component {
     )
   }
 }
+
 export default Ingredients
