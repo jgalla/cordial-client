@@ -109,14 +109,12 @@ class Cocktails extends Component {
                   return (
                     <Card key={i}>
                       <Card.Title>{Object.keys(cocktails)[i]}</Card.Title>
-                      <Card.Text>
-                        <ul>
-                          {Object.entries(cocktails[key].ingredients).map((ingredient, x) => (
-                            <li key={x}>{`${ingredient[0]}: ${ingredient[1]}`}</li>
-                          ))}
-                        </ul>
-                        {cocktails[key].instructions}
-                      </Card.Text>
+                      <ul>
+                        {Object.entries(cocktails[key].ingredients).map((ingredient, x) => (
+                          <li key={x}>{`${ingredient[0]}: ${ingredient[1]}`}</li>
+                        ))}
+                      </ul>
+                      {cocktails[key].instructions}
                     </Card>
                   )
                 }
