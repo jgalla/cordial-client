@@ -19,7 +19,7 @@ class UpdateIngredient extends Component {
 
   handleSubmit = event => {
     event.preventDefault()
-    const { ingredient, user } = this.props
+    const { handleUpdate, ingredient, user } = this.props
     const data = {
       ingredient: {
         ingredient_name: this.state.ingredient_name
@@ -29,6 +29,7 @@ class UpdateIngredient extends Component {
 
     updateIngredient(ingredient.id, data, user)
       .then(response => console.log(response))
+      .then(handleUpdate)
       .catch(error => {
         console.error(error)
       })
@@ -37,7 +38,7 @@ class UpdateIngredient extends Component {
   render () {
     const { handleChange, handleSubmit } = this
     // const { ingredient_name } = this.state
-    // const { handleChange } = this.props
+    // const { handleUpdate } = this.props
     return (
       <Fragment>
         <form onSubmit={handleSubmit}>

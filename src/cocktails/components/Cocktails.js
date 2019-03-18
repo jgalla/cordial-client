@@ -75,9 +75,18 @@ class Cocktails extends Component {
       })
   }
 
+  handleUpdate = () => {
+    getIngredients()
+      .then(response => this.setState({ ingredients: response.data.ingredients }))
+      .catch(error => {
+        console.error(error)
+      })
+    // console.log(event.target)
+  }
+
   render () {
     const { cocktails, ingredients } = this.state
-    const { handleChange } = this
+    const { handleChange, handleUpdate } = this
     const { user } = this.props
 
     if (!cocktails) {
@@ -91,6 +100,7 @@ class Cocktails extends Component {
             <Ingredients
               ingredients={ingredients}
               handleChange={handleChange}
+              handleUpdate={handleUpdate}
               user={user}
             />
           </Col>

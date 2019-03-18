@@ -15,7 +15,7 @@ class Ingredients extends Component {
     console.log(event.target.id)
     const id = event.target.id
     deleteIngredient(id, this.props.user)
-      .then(response => console.log(response))
+      .then(this.props.handleUpdate)
       .catch(error => {
         console.error(error)
       })
@@ -23,7 +23,7 @@ class Ingredients extends Component {
 
   render () {
     const { handleDelete } = this
-    const { handleChange, ingredients, user } = this.props
+    const { handleChange, handleUpdate, ingredients, user } = this.props
 
     return (
       <Fragment>
@@ -45,7 +45,7 @@ class Ingredients extends Component {
               </label>
               {ingredient.id < 13
                 ? (null)
-                : (<UpdateIngredient onChange={handleChange} handleUpdate={null} ingredient={ingredient} user={user}/>)}
+                : (<UpdateIngredient onChange={handleChange} handleUpdate={handleUpdate} ingredient={ingredient} user={user}/>)}
               <br />
             </Fragment>
           ))}
