@@ -25,9 +25,9 @@ export const getIngredients = () => {
 //   })
 // }
 
-export const saveIngredients = (data, user) => {
+export const addIngredient = (data, user) => {
   return axios({
-    url: apiUrl + '/ingredient_users',
+    url: apiUrl + '/ingredients',
     method: 'POST',
     headers: {
       'Authorization': `Token token=${user.token}`

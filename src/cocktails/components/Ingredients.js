@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react'
 // import Button from 'react-bootstrap/Button'
 
 import DeleteIngredient from './DeleteIngredient'
+import AddIngredient from './AddIngredient'
 // import { deleteIngredients } from '../api'
 
 class Ingredients extends Component {
@@ -15,10 +16,12 @@ class Ingredients extends Component {
 
   render () {
     const { handleClick } = this
-    const { handleChange, ingredients } = this.props
+    const { handleChange, ingredients, user } = this.props
+
     return (
       <Fragment>
         <form>
+          <AddIngredient user={user}/>
           {ingredients.map((ingredient, i) => (
             <Fragment key={ingredient.id}>
               <DeleteIngredient handleClick={handleClick} id={ingredient.id}/>
