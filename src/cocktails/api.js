@@ -8,10 +8,13 @@ export const getCocktails = () => {
   })
 }
 
-export const getIngredients = () => {
+export const getIngredients = (user) => {
   return axios({
     method: 'GET',
-    url: apiUrl + '/ingredients'
+    url: apiUrl + '/ingredients',
+    headers: {
+      'Authorization': `Token token=${user.token}`
+    }
   })
 }
 

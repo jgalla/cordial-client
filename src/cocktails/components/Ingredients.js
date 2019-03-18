@@ -26,7 +26,7 @@ class Ingredients extends Component {
           <Fragment key={ingredient.id}>
             {ingredient.id < 13
               ? (null)
-              : (<DeleteIngredient handleDelete={handleDelete} id={ingredient.id}/>)}
+              : (<DeleteIngredient user={user} ingredient={ingredient} handleDelete={handleDelete} id={ingredient.id}/>)}
             <label>
               <input
                 type='checkbox'

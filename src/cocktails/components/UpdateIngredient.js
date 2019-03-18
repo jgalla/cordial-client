@@ -34,18 +34,22 @@ class UpdateIngredient extends Component {
 
   render () {
     const { handleChange, handleSubmit } = this
+    const { user, ingredient } = this.props
 
     return (
       <Fragment>
-        <form onSubmit={handleSubmit}>
-          <input
-            placeholder={this.state.ingredient_name}
-            name="ingredient_name"
-            onChange={handleChange}
-            value={undefined}
-          />
-          <button type="submit" >Update</button>
-        </form>
+        {user.id === ingredient.user_id ? (
+          <form onSubmit={handleSubmit}>
+            <input
+              placeholder={this.state.ingredient_name}
+              name="ingredient_name"
+              onChange={handleChange}
+              value={undefined}
+            />
+            <button type="submit" >Update</button>
+          </form>
+        ) : null
+        }
       </Fragment>
     )
   }
