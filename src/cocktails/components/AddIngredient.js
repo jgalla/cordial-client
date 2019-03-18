@@ -31,6 +31,7 @@ class AddIngredient extends Component {
 
     addIngredient(data, user)
       .then(response => console.log(response))
+      .then(this.props.handleUpdate)
       .catch(error => {
         console.error(error)
       })

@@ -28,7 +28,7 @@ class Ingredients extends Component {
     return (
       <Fragment>
         <form>
-          <AddIngredient user={user}/>
+          <AddIngredient handleUpdate={handleUpdate} user={user}/>
           {ingredients.map((ingredient, i) => (
             <Fragment key={ingredient.id}>
               {ingredient.id < 13
