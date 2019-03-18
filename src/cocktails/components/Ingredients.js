@@ -21,29 +21,27 @@ class Ingredients extends Component {
 
     return (
       <Fragment>
-        <form>
-          <AddIngredient alert={alert} handleUpdate={handleUpdate} user={user}/>
-          {ingredients.map((ingredient, i) => (
-            <Fragment key={ingredient.id}>
-              {ingredient.id < 13
-                ? (null)
-                : (<DeleteIngredient handleDelete={handleDelete} id={ingredient.id}/>)}
-              <label>
-                <input
-                  type='checkbox'
-                  name={ingredient.ingredient_name}
-                  index={i}
-                  checked={ingredient.checked_status}
-                  onChange={handleChange} />
-                {' '}{ingredient.ingredient_name}
-              </label>
-              {ingredient.id < 13
-                ? (null)
-                : (<UpdateIngredient onChange={handleChange} handleUpdate={handleUpdate} ingredient={ingredient} user={user}/>)}
-              <br />
-            </Fragment>
-          ))}
-        </form>
+        <AddIngredient alert={alert} handleUpdate={handleUpdate} user={user}/>
+        {ingredients.map((ingredient, i) => (
+          <Fragment key={ingredient.id}>
+            {ingredient.id < 13
+              ? (null)
+              : (<DeleteIngredient handleDelete={handleDelete} id={ingredient.id}/>)}
+            <label>
+              <input
+                type='checkbox'
+                name={ingredient.ingredient_name}
+                index={i}
+                checked={ingredient.checked_status}
+                onChange={handleChange} />
+              {' '}{ingredient.ingredient_name}
+            </label>
+            {ingredient.id < 13
+              ? (null)
+              : (<UpdateIngredient onChange={handleChange} handleUpdate={handleUpdate} ingredient={ingredient} user={user}/>)}
+            <br />
+          </Fragment>
+        ))}
       </Fragment>
     )
   }
