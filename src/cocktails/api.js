@@ -26,6 +26,17 @@ export const addIngredient = (data, user) => {
   })
 }
 
+export const updateIngredient = (id, data, user) => {
+  return axios({
+    url: apiUrl + '/ingredients/' + id,
+    method: 'PATCH',
+    headers: {
+      'Authorization': `Token token=${user.token}`
+    },
+    data: data
+  })
+}
+
 export const deleteIngredient = (id, user) => {
   return axios({
     url: apiUrl + '/ingredients/' + id,

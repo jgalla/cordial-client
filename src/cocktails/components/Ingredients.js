@@ -3,6 +3,7 @@ import React, { Component, Fragment } from 'react'
 
 import DeleteIngredient from './DeleteIngredient'
 import AddIngredient from './AddIngredient'
+import UpdateIngredient from './UpdateIngredient'
 import { deleteIngredient } from '../api'
 
 class Ingredients extends Component {
@@ -42,6 +43,9 @@ class Ingredients extends Component {
                   onChange={handleChange} />
                 {' '}{ingredient.ingredient_name}
               </label>
+              {ingredient.id < 13
+                ? (null)
+                : (<UpdateIngredient onChange={handleChange} handleUpdate={null} ingredient={ingredient} user={user}/>)}
               <br />
             </Fragment>
           ))}
