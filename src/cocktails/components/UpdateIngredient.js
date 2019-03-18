@@ -41,7 +41,7 @@ class UpdateIngredient extends Component {
             placeholder={this.state.ingredient_name}
             name="ingredient_name"
             onChange={handleChange}
-            value={null}
+            value={''}
           />
           <button type="submit" >Update</button>
         </form>
