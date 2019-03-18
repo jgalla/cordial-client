@@ -93,6 +93,12 @@ class Cocktails extends Component {
     return (
       <Container>
         <Row>
+          <Card body>
+            Select ingredients to see available cocktail recipes. Note that seed
+            data is not currently accurate or complete.
+          </Card>
+        </Row>
+        <Row>
           <Col sm={4}>
             <Ingredients
               alert={alert}
