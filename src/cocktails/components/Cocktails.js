@@ -21,7 +21,6 @@ class Cocktails extends Component {
   }
 
   componentDidMount () {
-    const { user } = this.props
     getCocktails()
       .then(response => {
         const responseData = response.data.cocktail_ingredients
@@ -49,7 +48,7 @@ class Cocktails extends Component {
         console.error(error)
       })
 
-    getIngredients(user)
+    getIngredients()
       .then(response => this.setState({ ingredients: response.data.ingredients }))
       .catch(error => {
         console.error(error)
@@ -75,8 +74,7 @@ class Cocktails extends Component {
   }
 
   handleUpdate = () => {
-    const { user } = this.props
-    getIngredients(user)
+    getIngredients()
       .then(response => this.setState({ ingredients: response.data.ingredients }))
       .catch(error => {
         console.error(error)
