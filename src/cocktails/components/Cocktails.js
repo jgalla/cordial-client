@@ -6,6 +6,7 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 
 import Ingredients from './Ingredients'
+import './Cocktails.scss'
 
 import { getCocktails, getIngredients } from '../api'
 
@@ -91,7 +92,7 @@ class Cocktails extends Component {
     }
 
     return (
-      <Container>
+      <Container fluid={true}>
         <Row>
           <Card body>
             Select ingredients to see available cocktail recipes. Note that seed
@@ -99,7 +100,7 @@ class Cocktails extends Component {
           </Card>
         </Row>
         <Row>
-          <Col sm={4}>
+          <Col className="side-nav" sm={4}>
             <Ingredients
               alert={alert}
               ingredients={ingredients}
