@@ -1,7 +1,8 @@
-$charcoal: #bbb;
+@import '../css/colors';
 
 .main-header {
   align-items: center;
+  background-color: $header-background;
   border-bottom: 1px solid $charcoal;
   display: flex;
   height: 100px;

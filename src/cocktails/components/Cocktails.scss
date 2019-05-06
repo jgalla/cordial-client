@@ -1,6 +1,18 @@
 @import '../../css/colors';
 
+.main-body {
+  background-color: $body-background;
+}
+
 .side-nav {
   background-color: $side-background;
   border-right: 1px solid $charcoal;
+}
+
+.cocktail-body {
+  background-color: $cocktail-body-background;
+}
+
+.row {
+  height: 100vh;
 }

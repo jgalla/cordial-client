@@ -93,7 +93,7 @@ class Cocktails extends Component {
 
     return (
       <Container fluid={true}>
-        <Row>
+        <Row className="row">
           <Col className="side-nav" sm={4}>
             <Ingredients
               alert={alert}
@@ -103,12 +103,12 @@ class Cocktails extends Component {
               user={user}
             />
           </Col>
-          <Col sm={8}>
+          <Col className="main-body" sm={8}>
             <CardColumns>
               {Object.keys(cocktails).map((key, i) => {
                 if (this.state.selectedIngredients.filter(x => Object.keys(cocktails[key].ingredients).includes(x)).length === Object.keys(cocktails[key].ingredients).length) {
                   return (
-                    <Card key={i}>
+                    <Card className="cocktail-body" key={i}>
                       <Card.Title>{Object.keys(cocktails)[i]}</Card.Title>
                       <ul>
                         {Object.entries(cocktails[key].ingredients).map((ingredient, x) => (
