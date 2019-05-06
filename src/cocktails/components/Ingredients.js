@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from 'react'
 
 import DeleteIngredient from './DeleteIngredient'
-import AddIngredient from './AddIngredient'
 import UpdateIngredient from './UpdateIngredient'
 import { deleteIngredient } from '../api'
 
@@ -17,11 +16,10 @@ class Ingredients extends Component {
 
   render () {
     const { handleDelete } = this
-    const { alert, handleChange, handleUpdate, ingredients, user } = this.props
+    const { handleChange, handleUpdate, ingredients, user } = this.props
 
     return (
       <Fragment>
-        <AddIngredient alert={alert} handleUpdate={handleUpdate} user={user}/>
         {ingredients.map((ingredient, i) => (
           <Fragment key={ingredient.id}>
             {ingredient.id < 13
