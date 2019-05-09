@@ -1,15 +1,6 @@
 import React, { Component, Fragment } from 'react'
 
 class Ingredients extends Component {
-  // handleDelete = event => {
-  //   const id = event.target.id
-  //   deleteIngredient(id, this.props.user)
-  //     .then(this.props.handleUpdate)
-  //     .catch(error => {
-  //       console.error(error)
-  //     })
-  // }
-
   render () {
     const { handleChange, ingredients } = this.props
 
